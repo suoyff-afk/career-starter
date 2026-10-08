@@ -1,0 +1,10 @@
+# All real candidate data lives here.
+/workspace/
+/.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

@@ -1,0 +1,115 @@
+% !TEX program = xelatex
+% Build with XeLaTeX. This is the single editable resume source.
+% Layout provenance: the user's existing shared Chinese resume and its A/B
+% thin input wrappers: single column, black section labels, aligned metadata,
+% and itemize. No personal content or machine-specific paths were copied.
+% Edit labels/content into the application language. Delete unused sections
+% and entries; reorder sections for the person and target role. Education
+% need not come first. Replace ALL @@...@@ tokens before final delivery.
+% Escape TeX characters in actual content: &, %, $, #, _, {, }, and backslash.
+% No photograph, political affiliation, birthday, or other sensitive fields
+% are enabled by default. Add optional information only when appropriate and
+% confirmed by the applicant. Do not invent dates, metrics, or qualifications.
+\documentclass[10pt,a4paper]{article}
+% For Letter, change a4paper above to letterpaper; check the printed layout.
+\usepackage[top=1.4cm,bottom=1.4cm,left=1.65cm,right=1.65cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{needspace}
+
+% Portable adaptation, not a claim about the original private workflow:
+% prefer its Windows fonts; otherwise use fonts distributed with TeX.
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{Latin Modern Roman}}
+\IfFontExistsTF{Arial}
+  {\setsansfont{Arial}}
+  {\setsansfont{Latin Modern Sans}}
+\IfFontExistsTF{SimSun}{%
+  \IfFontExistsTF{SimHei}
+    {\setCJKmainfont{SimSun}[BoldFont=SimHei]}
+    {\setCJKmainfont{SimSun}[BoldFont=FandolHei-Regular]}%
+}{\setCJKmainfont{FandolSong-Regular}[BoldFont=FandolHei-Regular]}
+\IfFontExistsTF{Microsoft YaHei}
+  {\setCJKsansfont{Microsoft YaHei}}
+  {\setCJKsansfont{FandolHei-Regular}}
+
+\definecolor{accent}{HTML}{000000}
+\definecolor{subtle}{HTML}{000000}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\baselinestretch}{1}
+\setlist[itemize]{leftmargin=3.4mm,labelwidth=1.2mm,labelsep=2.2mm,
+  itemindent=0pt,listparindent=0pt,itemsep=3pt,topsep=2pt,parsep=0pt}
+% Same section treatment as the original. Needspace is a portable adaptation
+% to keep a section label with the first lines of its content.
+\renewcommand{\section}[1]{\par\needspace{4\baselineskip}\vspace{8pt}%
+  \noindent{\setlength{\fboxsep}{2pt}\colorbox{accent}{%
+  \fontsize{10.5}{13}\selectfont\bfseries\color{white}#1}}%
+  \leaders\hrule height .35pt\hfill\kern0pt\par\vspace{5pt}}
+
+\newcommand{\cvHeader}[3]{%
+  {\fontsize{22}{26}\selectfont\bfseries #1}\par\vspace{4pt}%
+  {\fontsize{11}{14}\selectfont #2}\par\vspace{3pt}%
+  {\fontsize{10}{15}\selectfont #3}\par}
+% Aligned, wrapping metadata derives from the shared original metaRow.
+\newcommand{\metaRow}[2]{\par\noindent{\footnotesize\color{subtle}%
+  \parbox[t]{\dimexpr\linewidth-2.7cm\relax}{\raggedright #1}\hfill%
+  \parbox[t]{2.65cm}{\raggedleft #2}}\par}
+% Entry = role/project/qualification, organization/context, dates.
+\newcommand{\cvEntry}[3]{\par\needspace{3\baselineskip}%
+  \noindent{\fontsize{10.5}{14}\selectfont\textbf{#1}}\par%
+  \metaRow{#2}{#3}}
+
+\begin{document}
+\cvHeader{@@NAME@@}{@@HEADLINE@@}{@@CONTACT@@}
+% Contact is selectable text; use \href{mailto:...}{...} or \href{...}{...}
+% only for verified links. Location/work authorization are optional.
+\fontsize{10.5}{14.5}\selectfont
+
+% Optional summary: omit when it adds no useful, evidence-based information.
+\section{@@SUMMARYLABEL@@}
+@@SUMMARY@@\par
+
+% Experienced/returning applicants may lead with work. Students may place
+% education or relevant practice first. Career changers may lead with a
+% relevant project or skills, while retaining truthful work chronology.
+\section{@@EXPERIENCELABEL@@}
+\cvEntry{@@ROLE@@}{@@ORGANIZATIONANDLOCATION@@}{@@WORKDATE@@}
+\begin{itemize}
+  \item @@EXPERIENCEBULLET1@@
+  \item @@EXPERIENCEBULLET2@@
+\end{itemize}
+% Add another cvEntry + itemize only for relevant, confirmed experience.
+% Bullets: action + task/context + method + confirmed outcome (optional).
+% Scope, deliverables, and responsibilities work without invented numbers.
+
+% Optional: can represent freelance delivery, volunteering, coursework,
+% independent practice, creative work, or research as appropriate.
+\section{@@PROJECTSLABEL@@}
+\cvEntry{@@PROJECTTITLE@@}{@@PROJECTCONTEXT@@}{@@PROJDATE@@}
+\begin{itemize}
+  \item @@PROJECTBULLET@@
+\end{itemize}
+
+\section{@@EDUCATIONLABEL@@}
+\cvEntry{@@QUALIFICATIONANDSUBJECT@@}{@@INSTITUTION@@}{@@EDUDATE@@}
+% Add a short relevant course, distinction, or explanation only if useful.
+
+\section{@@SKILLSLABEL@@}
+\begin{itemize}
+  \item \textbf{@@SKILLGROUP@@:} @@SKILLS@@
+  \item \textbf{@@LANGUAGESLABEL@@:} @@LANGUAGES@@
+\end{itemize}
+
+% Optional: licenses, certifications, awards, portfolio, or other relevant
+% information. Rename/delete this section, rather than filling it by default.
+\section{@@ADDITIONALLABEL@@}
+@@ADDITIONAL@@\par
+
+\end{document}
