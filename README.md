@@ -57,4 +57,4 @@ python scripts/career.py build
 
 尚未验证：新同学以真实资料完成完整访谈与求职、其他操作系统的字体环境及实际ATS上传。真实使用仍需本人确认内容；合成样例不代表任何人的成果，不承诺录取效果。GitHub下载与脚本检查通过不等于真实使用者的完整流程已经验证。
 
-维护者检查：`python -m unittest discover -s tests -v`，判断场景见[tests/scenarios.md](tests/scenarios.md)。只发布本项目目录，检查文件清单和Git历史；gitignore不能删除历史私人数据。许可：[MIT](LICENSE)。
+维护者检查：`python -m unittest discover -s tests -v`，判断场景见[tests/scenarios.md](tests/scenarios.md)。分享公开仓库链接；离线打包只包含审查过的公共文件，排除workspace、凭据和私人导出。发布前检查文件清单和Git历史；gitignore既不能清除历史私人数据，也不能保护目录压缩包。许可：[MIT](LICENSE)。
