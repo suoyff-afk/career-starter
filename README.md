@@ -45,6 +45,18 @@ tracker只管进度与下一步，companies只管判断，不复制两套状态�
 
 投递、联系企业、对外上传或发布由你决定。个人资料不能放公共仓库。无回复不直接解释为被拒。
 
+## 随项目提供的三个Skill
+
+Codex按AGENTS中的任务入口直接读取，不需要使用者安装或另填配置。
+
+| Skill | 用途 |
+| --- | --- |
+| [job-crawler](skills/job-crawler/SKILL.md) | 发现并核实岗位 |
+| [technical-job-search](skills/technical-job-search/SKILL.md) | 工程／科研岗位判断、申请材料和待遇比较 |
+| [interview-rehearsal](skills/interview-rehearsal/SKILL.md) | 面试稿、逐题练习和复盘 |
+
+例如说“帮我查这家公司的岗位”或“开始面试练习，一题一题来”。技能只提供方法，不包含任何人的履历；文件归属与权限统一按AGENTS执行。不为使用这些技能复制第二份背景或总表。
+
 ## 本地工具
 
 下面命令由Codex执行，使用者无需手工操作。辅助脚本需要Python 3.10或以上（仅标准库），简历用本地XeLaTeX（TeX Live或MiKTeX）。不需要数据库、付费API或强制安装求职Skill。脚本只负责建档和编译；访谈、修改简历和岗位检索由Codex执行，不是运行脚本后自动完成。

@@ -38,9 +38,9 @@
 
 使用者可以以有限数据观察：准备耗时、可投材料是否完成、重复记录数、有完整JD的行动岗位比例、带日期的待办比例、实际投递/回复/面试与等待时长。录取结果受个人、企业和市场影响，这些不能直接证明系统因果效果。
 
-## 可选Skill的来源与适配
+## Skill的来源与适配
 
-曾使用[job-crawler](https://github.com/sameergdogg/job-search-skills/blob/main/job-crawler/SKILL.md)发现官网岗位，并采用[technical-job-search](https://github.com/github/awesome-copilot/blob/main/skills/technical-job-search/SKILL.md)区分JD要求与真实经历。通用入口吸收了官网核实、去重、真实匹配等方法，不复制其代码或强制依赖云盘、付费API、某地区或技术职业。已安装且任务相关时可使用，不能把上游Skill当成招聘有效性证据。
+项目现提供[岗位检索](../skills/job-crawler/SKILL.md)、[工程／科研申请](../skills/technical-job-search/SKILL.md)、[面试练习](../skills/interview-rehearsal/SKILL.md)三项技能。前两项在文件末尾保留上游来源，面试流程由实际练习问题提炼；均不包含私人经历。职责入口见AGENTS，避免再维护另一套执行规则。不强制云盘、付费API或某地区／职业，也不把技能本身当成招聘有效性证据。
 
 ## 验证边界
 
